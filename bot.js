@@ -91,11 +91,10 @@ function balance() {
         groupTotal++;
       }
 
+      // Calculate half of the group total for balance.
       half = groupTotal / 2;
-      groupTotal--; //Decrease by one to account for array positioning
-
       while (banned < half) {
-        user = Math.floor(Math.random() * groupTotal);
+        user = Math.floor(Math.random() * (groupTotal - 1));
 
         // Initialize the array with the first banned user
         // I have no clue why this is required.
@@ -121,12 +120,12 @@ function balance() {
       } // end ban list generation loop
 
       console.log('Snapped IDs:');
-      for (var i = 0; i < bannedIDs.length; i++) {
+      for (var i = 0; i < groupTotal; i++) {
         console.log(bannedIDs[i]);
       }
 
       // promote shoddy coding to get this bot done fast
-      for (var i = 0; i < bannedIDs.length; i++) {
+      for (var i = 0; i < groupTotal; i++) {
         snap(bannedIDs[i]);
       }
     });
