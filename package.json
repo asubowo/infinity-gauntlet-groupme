@@ -1,6 +1,6 @@
 {
   "name": "infinity-gauntlet-groupme",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "A node.js app that removes half of a GroupMe group on your behalf. Use with caution.",
   "main": "index.js",
   "scripts": {
