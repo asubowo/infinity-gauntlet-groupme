@@ -112,7 +112,7 @@ function balance() {
             memberID = ("" + responseData.response.members[user].id);
             bannedName = ("" + responseData.response.members[user].name);
             bannedIDs.push(memberID);
-            bannedNames.push(bannedName);
+            bannedNames.push(bannedName);u
             console.log('Added ' + memberID + ' to snap list first');
             banned++;
           }
