@@ -20,9 +20,9 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/snapsOutForHarambe$/;
   console.log(request);
-  if(request.text && botRegex.test(request.text)) {
+  if(request.text )//&& botRegex.test(request.text)) {
     this.res.writeHead(200);
-  //  balance();
+    balance();
     this.res.end();
   } else {
     this.res.writeHead(200);
@@ -82,6 +82,7 @@ function balance() {
     response.on('end', function(chunk) {
       var user;
       var bannedIDs = [];
+      var bannedNames = [];
       var groupTotal = 0;
       var half = 0;
       var banned = 0;
@@ -109,13 +110,17 @@ function balance() {
           // and throw an Unexpected End of Input exception. Weird. Oh well.
           if (bannedIDs.length == 0) {
             memberID = ("" + responseData.response.members[user].id);
+            bannedName = ("" + responseData.response.members[user].name);
             bannedIDs.push(memberID);
+            bannedNames.push(bannedName);
             console.log('Added ' + memberID + ' to snap list first');
             banned++;
           }
             // If the user we're targeting does not exist in the array, add him or her to the snap list
           else if (bannedIDs.indexOf(("" + responseData.response.members[user].id)) == -1) {
             memberID = ("" + responseData.response.members[user].id);
+            bannedName = ("" + responseData.response.members[user].name);
+            bannedIDs.push(memberID);
             bannedIDs.push(memberID);
             console.log('Added ' + memberID + ' to snap list');
             banned++;
@@ -127,13 +132,16 @@ function balance() {
 
         console.log('Snapped IDs:');
         for (var i = 0; i < groupTotal; i++) {
-          console.log(bannedIDs[i]);
+          console.log(bannedIDs[i] + " " + bannedNames[i]);
         }
 
-        // promote shoddy coding to get this bot done fast
-        for (var i = 0; i < groupTotal; i++) {
-          snap(bannedIDs[i]);
-        }
+
+//        // promote shoddy coding to get this bot done fast
+//        for (var i = 0; i < groupTotal; i++) {
+//          snap(bannedIDs[i]);
+//        }
+
+
       } // end cruddy if statement
       });
   }
