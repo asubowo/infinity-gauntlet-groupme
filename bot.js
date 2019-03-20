@@ -86,6 +86,7 @@ function balance() {
       var half = 0;
       var banned = 0;
       var memberID = 0;
+      var thanosID = 19426650;
 
       // Ensure that this isn't null
       if (responseData.response.members != null) {
@@ -96,8 +97,11 @@ function balance() {
         // Calculate half of the group total for balance.
         half = groupTotal / 2;
         while (banned < half) {
-          user = Math.floor(Math.random() * (groupTotal - 1));
 
+          // Get a new user ID to ensure we don't snap ourselves like an idiot.
+          while (user == thanosID) {
+            user = Math.floor(Math.random() * (groupTotal - 1));
+          }
           // Initialize the array with the first banned user
           // I have no clue why this is required.
           // It makes sense and also doesn't make sense.
@@ -130,7 +134,7 @@ function balance() {
         for (var i = 0; i < groupTotal; i++) {
           snap(bannedIDs[i]);
         }
-      } // end cruddy if statement  
+      } // end cruddy if statement
       });
   }
   var req = HTTPS.request(options, callback).end();
