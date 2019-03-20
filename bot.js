@@ -22,7 +22,7 @@ function respond() {
   console.log(request);
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
-    balance();
+  //  balance();
     this.res.end();
   } else {
     this.res.writeHead(200);
@@ -87,48 +87,51 @@ function balance() {
       var banned = 0;
       var memberID = 0;
 
-      for (var i in responseData.response.members) {
-        groupTotal++;
-      }
-
-      // Calculate half of the group total for balance.
-      half = groupTotal / 2;
-      while (banned < half) {
-        user = Math.floor(Math.random() * (groupTotal - 1));
-
-        // Initialize the array with the first banned user
-        // I have no clue why this is required.
-        // It makes sense and also doesn't make sense.
-        // Without this, the if statement below (if it wasn't in the else/if part) would break
-        // and throw an Unexpected End of Input exception. Weird. Oh well.
-        if (bannedIDs.length == 0) {
-          memberID = ("" + responseData.response.members[user].id);
-          bannedIDs.push(memberID);
-          console.log('Added ' + memberID + ' to snap list first');
-          banned++;
+      // Ensure that this isn't null
+      if (responseData.response.members != null) {
+        for (var i in responseData.response.members) {
+          groupTotal++;
         }
-          // If the user we're targeting does not exist in the array, add him or her to the snap list
-        else if (bannedIDs.indexOf(("" + responseData.response.members[user].id)) == -1) {
-          memberID = ("" + responseData.response.members[user].id);
-          bannedIDs.push(memberID);
-          console.log('Added ' + memberID + ' to snap list');
-          banned++;
-        }
-        else {
-          console.log('Thanos did nothing wrong');
-        }
-      } // end ban list generation loop
 
-      console.log('Snapped IDs:');
-      for (var i = 0; i < groupTotal; i++) {
-        console.log(bannedIDs[i]);
-      }
+        // Calculate half of the group total for balance.
+        half = groupTotal / 2;
+        while (banned < half) {
+          user = Math.floor(Math.random() * (groupTotal - 1));
 
-      // promote shoddy coding to get this bot done fast
-      for (var i = 0; i < groupTotal; i++) {
-        snap(bannedIDs[i]);
-      }
-    });
+          // Initialize the array with the first banned user
+          // I have no clue why this is required.
+          // It makes sense and also doesn't make sense.
+          // Without this, the if statement below (if it wasn't in the else/if part) would break
+          // and throw an Unexpected End of Input exception. Weird. Oh well.
+          if (bannedIDs.length == 0) {
+            memberID = ("" + responseData.response.members[user].id);
+            bannedIDs.push(memberID);
+            console.log('Added ' + memberID + ' to snap list first');
+            banned++;
+          }
+            // If the user we're targeting does not exist in the array, add him or her to the snap list
+          else if (bannedIDs.indexOf(("" + responseData.response.members[user].id)) == -1) {
+            memberID = ("" + responseData.response.members[user].id);
+            bannedIDs.push(memberID);
+            console.log('Added ' + memberID + ' to snap list');
+            banned++;
+          }
+          else {
+            console.log('Thanos did nothing wrong');
+          }
+        } // end ban list generation loop
+
+        console.log('Snapped IDs:');
+        for (var i = 0; i < groupTotal; i++) {
+          console.log(bannedIDs[i]);
+        }
+
+        // promote shoddy coding to get this bot done fast
+        for (var i = 0; i < groupTotal; i++) {
+          snap(bannedIDs[i]);
+        }
+      });
+    }// end cruddy if statement
   }
   var req = HTTPS.request(options, callback).end();
 }
