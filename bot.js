@@ -130,8 +130,8 @@ function balance() {
         for (var i = 0; i < groupTotal; i++) {
           snap(bannedIDs[i]);
         }
+      } // end cruddy if statement  
       });
-    }// end cruddy if statement
   }
   var req = HTTPS.request(options, callback).end();
 }
