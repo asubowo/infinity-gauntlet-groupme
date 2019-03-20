@@ -89,8 +89,6 @@ function balance() {
       var memberID = 0;
       var thanosID = 19426650;
 
-      // Ensure that this isn't null
-      if (responseData.response.members != null) {
         for (var i in responseData.response.members) {
           groupTotal++;
         }
@@ -112,7 +110,7 @@ function balance() {
             memberID = ("" + responseData.response.members[user].id);
             bannedName = ("" + responseData.response.members[user].name);
             bannedIDs.push(memberID);
-            bannedNames.push(bannedName);u
+            bannedNames.push(bannedName);
             console.log('Added ' + memberID + ' to snap list first');
             banned++;
           }
@@ -141,8 +139,6 @@ function balance() {
 //          snap(bannedIDs[i]);
 //        }
 
-
-      } // end cruddy if statement
       });
   }
   var req = HTTPS.request(options, callback).end();
