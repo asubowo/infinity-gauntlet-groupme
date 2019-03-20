@@ -18,7 +18,7 @@ var responseData;
  */
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/snap$/;
+      botRegex = /^\/snapsOutForHarambe$/;
   console.log(request);
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
