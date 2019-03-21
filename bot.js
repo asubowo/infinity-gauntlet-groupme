@@ -77,7 +77,7 @@ function balance() {
   callback = function(response) {
     response.on('data', function(chunk) {
       responseData += JSON.parse(chunk);
-    //  console.log(responseData);
+      console.log(responseData);
     });
 
     response.on('end', function(chunk) {
