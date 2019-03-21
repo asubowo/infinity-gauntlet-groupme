@@ -73,7 +73,7 @@ function balance() {
 
   };
 
-  var response = '';
+  var response;
   console.log('Snapping...');
   callback = function(response) {
     response.on('data', function(chunk) {
