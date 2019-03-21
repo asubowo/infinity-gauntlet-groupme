@@ -70,12 +70,13 @@ function balance() {
     hostname: 'api.groupme.com',
     path: pathurl,
     method: 'GET'
+
   };
 
   console.log('Snapping...');
   callback = function(response) {
     response.on('data', function(chunk) {
-      responseData = JSON.parse(chunk);
+      responseData += JSON.parse(chunk);
     //  console.log(responseData);
     });
 
