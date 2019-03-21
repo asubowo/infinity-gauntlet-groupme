@@ -83,7 +83,7 @@ function balance() {
     });
 
     response.on('end', function(chunk) {
-      var responseData = JSON.parse(response);
+      var responseData = response;
       var user;
       var bannedIDs = [];
       var bannedNames = [];
