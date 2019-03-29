@@ -96,7 +96,7 @@ function balance() {
         for (var i in responseData.members) {
           groupTotal++;
         }
-        
+        console.log("Total people in group: " + groupTotal);
 
         // Calculate half of the group total for balance.
         half = groupTotal / 2;
@@ -106,6 +106,7 @@ function balance() {
           while (user == thanosID) {
             user = Math.floor(Math.random() * (groupTotal - 1));
           }
+          
           // Initialize the array with the first banned user
           // I have no clue why this is required.
           // It makes sense and also doesn't make sense.
