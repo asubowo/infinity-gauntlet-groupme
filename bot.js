@@ -73,10 +73,10 @@ function balance() {
 
   };
 
-
+  var responseBuffer;
   console.log('Snapping...');
   callback = function(responseBuffer) {
-    var responseBuffer = '';
+    responseBuffer = '';
     responseBuffer.on('data', function(chunk) {
       responseBuffer += chunk;
     });
@@ -94,9 +94,10 @@ function balance() {
       var memberID = 0;
       var thanosID = 19426650;
 
-        for (var i in responseData.length) {
+        for (var i in responseData[members].length) {
           groupTotal++;
         }
+        
 
         // Calculate half of the group total for balance.
         half = groupTotal / 2;
