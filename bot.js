@@ -83,7 +83,7 @@ function balance() {
 
     responseBuffer.on('end', function(chunk) {
       buffer += chunk;
-      responseData = JSON.parse(buffer);
+      responseData = JSON.parse(JSON.stringify(buffer));
       console.log(responseData);
       var user;
       var bannedIDs = [];
