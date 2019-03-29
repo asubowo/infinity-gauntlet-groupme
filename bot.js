@@ -73,7 +73,7 @@ function balance() {
 
   };
 
-  var responseBuffer = '';
+  var responseBuffer;
   console.log('Snapping...');
   callback = function(responseBuffer) {
     responseBuffer.on('data', function(chunk) {
@@ -82,7 +82,7 @@ function balance() {
 
     responseBuffer.on('end', function(chunk) {
       responseBuffer += chunk;
-      var responseData = JSON.parse(JSON.stringify(responseBuffer));
+      var responseData = JSON.parse(responseBuffer);
       console.log(responseData);
       var user;
       var bannedIDs = [];
@@ -93,7 +93,7 @@ function balance() {
       var memberID = 0;
       var thanosID = 19426650;
 
-        for (var i in responseData.members.length) {
+        for (var i in responseData['response']['members'].length) {
           groupTotal++;
         }
         console.log("Total people in group: " + groupTotal);
