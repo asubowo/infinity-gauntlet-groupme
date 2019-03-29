@@ -94,7 +94,7 @@ function balance() {
       var memberID = 0;
       var thanosID = 19426650;
 
-        for (var i in responseData['response']['members'].length) {
+        for (var i in responseData.response.members.length) {
           groupTotal++;
         }
         console.log("Total people in group: " + groupTotal);
