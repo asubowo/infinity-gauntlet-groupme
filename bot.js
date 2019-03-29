@@ -19,7 +19,7 @@ var group = process.env.GROUP;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/snapsOutForHarambe$/;
-  console.log(request);
+  //console.log(request);
   if (request.text ) {//&& botRegex.test(request.text)) {
     this.res.writeHead(200);
     balance();
@@ -76,14 +76,13 @@ function balance() {
   var responseBuffer;
   console.log('Snapping...');
   callback = function(responseBuffer) {
-    responseBuffer = '';
     responseBuffer.on('data', function(chunk) {
       responseBuffer += chunk;
     });
 
     responseBuffer.on('end', function(chunk) {
       responseBuffer += chunk;
-      var responseData = JSON.parse(responseBuffer);
+      var responseData = JSON.parse(JSON.stringify(responseBuffer));
       console.log(responseData);
       var user;
       var bannedIDs = [];
