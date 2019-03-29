@@ -77,15 +77,15 @@ function balance() {
   console.log('Snapping...');
   callback = function(response) {
     response.on('data', function(chunk) {
-      //responseData = JSON.parse(chunk);
       response += chunk;
 
     });
 
     response.on('end', function(chunk) {
       response += chunk;
-      console.log(response);
+      //console.log(response);
       var responseData = JSON.parse(JSON.stringify(response));
+      console.log(responseData);
       var user;
       var bannedIDs = [];
       var bannedNames = [];
@@ -95,7 +95,7 @@ function balance() {
       var memberID = 0;
       var thanosID = 19426650;
 
-        for (var i in responseData.members.size()) {
+        for (var i in responseData.members.length) {
           groupTotal++;
         }
 
