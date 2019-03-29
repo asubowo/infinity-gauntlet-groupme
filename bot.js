@@ -73,9 +73,10 @@ function balance() {
 
   };
 
-  var responseBuffer = '';
+
   console.log('Snapping...');
   callback = function(responseBuffer) {
+    var responseBuffer = '';
     responseBuffer.on('data', function(chunk) {
       responseBuffer += chunk;
     });
