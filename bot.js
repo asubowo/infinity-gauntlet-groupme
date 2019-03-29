@@ -83,6 +83,7 @@ function balance() {
     });
 
     response.on('end', function(chunk) {
+      response += chunk;
       console.log(response);
       var responseData = response;
       var user;
