@@ -11,7 +11,6 @@ var HTTPS = require('https');
 var botID = process.env.BOT_ID;
 var token = process.env.ACCESS_TOKEN;
 var group = process.env.GROUP;
-//var responseData;
 
 /**
  * Begins the snap sequence.
@@ -73,9 +72,9 @@ function balance() {
 
   };
 
-  var responseBuffer;
   console.log('Snapping...');
   callback = function(responseBuffer) {
+    let responseData;
     var buffer = '';
     responseBuffer.on('data', function(chunk) {
       buffer += chunk;
@@ -86,7 +85,7 @@ function balance() {
      // console.log(typeof(buffer));
       console.log("this is buffer",buffer);
       responseData = JSON.parse(JSON.stringify(buffer));
-      console.log("fuck this",typeof(JSON.parse(responseData)));
+      console.log("fuck this",typeof(responseData));
       var user;
       var bannedIDs = [];
       var bannedNames = [];
