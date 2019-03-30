@@ -84,9 +84,9 @@ function balance() {
     responseBuffer.on('end', function(chunk) {
       buffer += chunk;
      // console.log(typeof(buffer));
-      console.log(buffer);
+      console.log("this is buffer",buffer);
       responseData = JSON.parse(JSON.stringify(buffer));
-      console.log(typeof(responseData));
+      console.log("fuck this",typeof(responseData));
       var user;
       var bannedIDs = [];
       var bannedNames = [];
@@ -96,7 +96,7 @@ function balance() {
       var memberID = 0;
       var thanosID = 19426650;
 
-      console.log(responseData.response);
+      console.log("this is line 99", responseData.response);
 
         for (var i in responseData.response.members.length) {
           groupTotal++;
