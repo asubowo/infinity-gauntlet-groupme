@@ -83,8 +83,8 @@ function balance() {
 
     responseBuffer.on('end', function(chunk) {
       buffer += chunk;
-      console.log(typeof(buffer));
-      console.log('test', typeof (JSON.parse(buffer)));
+     // console.log(typeof(buffer));
+      console.log(buffer);
       responseData = JSON.parse(buffer);
       console.log(responseData);
       var user;
