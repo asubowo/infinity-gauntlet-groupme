@@ -81,11 +81,9 @@ function balance() {
     });
 
     responseBuffer.on('end', function(chunk) {
-      console.log("contents of buffer ", buffer);
+      console.log("Contents of buffer: ", buffer);
       console.log("type of buffer ", typeof(buffer));
-      console.log("parseparse",typeof((JSON.parse(buffer))));
       responseData = JSON.parse(buffer);
-     // console.log("fuck this",typeof(responseData));
       var user;
       var bannedIDs = [];
       var bannedNames = [];
@@ -97,7 +95,7 @@ function balance() {
 
       console.log("this is line 99", responseData.response);
 
-        for (var i in responseData.response.members.length) {
+        for (int i = 0; i < responseData.response.members.length; i++) {
           groupTotal++;
         }
         console.log("Total people in group: " + groupTotal);
