@@ -95,7 +95,7 @@ function balance() {
 
       console.log("this is line 99", responseData.response);
 
-        for (int i = 0; i < responseData.response.members.length; i++) {
+        for (var i = 0; i < responseData.response.members.length; i++) {
           groupTotal++;
         }
         console.log("Total people in group: " + groupTotal);
