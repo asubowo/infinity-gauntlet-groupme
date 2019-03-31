@@ -102,8 +102,9 @@ function balance() {
 
         // Calculate half of the group total for balance.
         half = groupTotal / 2;
+        
         while (banned < half) {
-
+        user = Math.floor(Math.random() * (groupTotal - 1));
           // Get a new user ID to ensure we don't snap ourselves like an idiot.
     //      while (user == thanosID) {
     //        user = Math.floor(Math.random() * (groupTotal - 1));
@@ -124,7 +125,7 @@ function balance() {
           }
             // If the user we're targeting does not exist in the array, add him or her to the snap list
           else if (bannedIDs.indexOf(("" + responseData.members.user.id)) == -1) {
-            memberID = ("" + responseData.members.user.id);
+            memberID = (responseData.members.user.id);
             bannedName = ("" + responseData.members.user.name);
             bannedIDs.push(memberID);
             bannedIDs.push(memberID);
