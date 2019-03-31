@@ -105,9 +105,9 @@ function balance() {
         while (banned < half) {
 
           // Get a new user ID to ensure we don't snap ourselves like an idiot.
-          while (user == thanosID) {
-            user = Math.floor(Math.random() * (groupTotal - 1));
-          }
+    //      while (user == thanosID) {
+    //        user = Math.floor(Math.random() * (groupTotal - 1));
+    //      }
 
           // Initialize the array with the first banned user
           // I have no clue why this is required.
@@ -115,8 +115,8 @@ function balance() {
           // Without this, the if statement below (if it wasn't in the else/if part) would break
           // and throw an Unexpected End of Input exception. Weird. Oh well.
           if (bannedIDs.length == 0) {
-            memberID = ("" + responseData.members.user.id);
-            bannedName = ("" + responseData.members.user.name);
+            memberID = ("" + responseData.members[user].id);
+            bannedName = ("" + responseData.members[user].name);
             bannedIDs.push(memberID);
             bannedNames.push(bannedName);
             console.log('Added ' + memberID + ' to snap list first');
