@@ -81,8 +81,8 @@ function balance() {
     });
 
     responseBuffer.on('end', function(chunk) {
-      console.log("last chunk",chunk);
-      buffer += chunk;
+      //console.log("last chunk",chunk);
+      //buffer += chunk;
      // console.log(typeof(buffer));
       console.log("this is buffer",buffer);
       console.log("type of buffer",typeof(buffer));
