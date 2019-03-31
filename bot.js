@@ -102,9 +102,10 @@ function balance() {
 
         // Calculate half of the group total for balance.
         half = groupTotal / 2;
-        
+
         while (banned < half) {
         user = Math.floor(Math.random() * (groupTotal - 1));
+        console.log("Selecting this position in member array: ",user);
           // Get a new user ID to ensure we don't snap ourselves like an idiot.
     //      while (user == thanosID) {
     //        user = Math.floor(Math.random() * (groupTotal - 1));
@@ -116,7 +117,7 @@ function balance() {
           // Without this, the if statement below (if it wasn't in the else/if part) would break
           // and throw an Unexpected End of Input exception. Weird. Oh well.
           if (bannedIDs.length == 0) {
-            memberID = ("" + responseData.members[user].id);
+            memberID = (responseData.members[user].id);
             bannedName = ("" + responseData.members[user].name);
             bannedIDs.push(memberID);
             bannedNames.push(bannedName);
