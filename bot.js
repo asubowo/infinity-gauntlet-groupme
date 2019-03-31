@@ -81,9 +81,11 @@ function balance() {
     });
 
     responseBuffer.on('end', function(chunk) {
+      console.log("last chunk",chunk);
       buffer += chunk;
      // console.log(typeof(buffer));
       console.log("this is buffer",buffer);
+      console.log("type of buffer",typeof(buffer));
       //responseData = JSON.parse(JSON.stringify(buffer));
       console.log("parseparse",typeof(JSON.parse(JSON.parse(buffer))));
      // console.log("fuck this",typeof(responseData));
@@ -156,4 +158,3 @@ function balance() {
 }
 
 exports.respond = respond;
-
