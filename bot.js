@@ -104,7 +104,7 @@ function balance() {
         console.log("Selecting this position in member array: ",user);
           // Get a new user ID to ensure we don't snap ourselves like an idiot.
           while (responseData.response.members[user].name === thanosID) {
-            console.log("cannot snap bot creator");
+            console.log("CANNOT SNAP BOT CREATOR");
             user = Math.floor(Math.random() * (groupTotal - 1));
           }
 
@@ -118,7 +118,7 @@ function balance() {
             bannedName = responseData.response.members[user].name;
             bannedIDs.push(memberID);
             bannedNames.push(bannedName);
-            console.log('Added ' + memberID + ' to snap list first');
+            console.log('Added ' + bannedName + ' to snap list first');
             banned++;
           }
             // If the user we're targeting does not exist in the array, add him or her to the snap list
