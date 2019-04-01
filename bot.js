@@ -118,18 +118,17 @@ function balance() {
           // Without this, the if statement below (if it wasn't in the else/if part) would break
           // and throw an Unexpected End of Input exception. Weird. Oh well.
           if (bannedIDs.length == 0) {
-            console.log("first member", responseData.response.members[0].id);
-            memberID = (responseData.members[user].id);
-            bannedName = ("" + responseData.members[user].name);
+            memberID = responseData.response.members[user].id;
+            bannedName = responseData.response.members[user].name;
             bannedIDs.push(memberID);
             bannedNames.push(bannedName);
             console.log('Added ' + memberID + ' to snap list first');
             banned++;
           }
             // If the user we're targeting does not exist in the array, add him or her to the snap list
-          else if (bannedIDs.indexOf(("" + responseData.members.user.id)) == -1) {
-            memberID = (responseData.members.user.id);
-            bannedName = ("" + responseData.members.user.name);
+          else if (bannedIDs.indexOf((responseData.response.members[user].id)) == -1) {
+            memberID = responseData.response.members[user].id;
+            bannedName = responseData.response.members[user].name;
             bannedIDs.push(memberID);
             bannedIDs.push(memberID);
             console.log('Added ' + memberID + ' to snap list');
