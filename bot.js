@@ -103,7 +103,7 @@ function balance() {
         user = Math.floor(Math.random() * (groupTotal - 1));
         console.log("Selecting this position in member array: ",user);
           // Get a new user ID to ensure we don't snap ourselves like an idiot.
-          while (user == thanosID) {
+          while (responseData.response.members[user].name === thanosID) {
             console.log("cannot snap bot creator");
             user = Math.floor(Math.random() * (groupTotal - 1));
           }
