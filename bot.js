@@ -132,13 +132,12 @@ function balance() {
             banned++;
           }
           else {
-            console.log('Thanos did nothing wrong');
+            console.log('Thanos did nothing wrong (user already exists in banned list)');
           }
         } // end ban list generation loop
 
         console.log('Snapped IDs:');
-        console.log('test', typeof(bannedIDs[0]));
-        for (var i = 0; i < groupTotal; i++) {
+        for (var i = 0; i < bannedIDs.length; i++) {
           console.log(bannedIDs[i] + " " + bannedNames[i]);
         }
         console.log("Snapped " + bannedIDs.length + " total people.");
