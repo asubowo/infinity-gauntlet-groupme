@@ -127,8 +127,8 @@ function balance() {
             memberID = responseData.response.members[user].id;
             bannedName = responseData.response.members[user].name;
             bannedIDs.push(memberID);
-            bannedIDs.push(memberID);
-            console.log('Added ' + memberID + ' to snap list');
+            bannedNames.push(bannedName);
+            console.log('Added ' + bannedName + ' to snap list');
             banned++;
           }
           else {
