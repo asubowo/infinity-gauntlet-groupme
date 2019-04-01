@@ -117,6 +117,7 @@ function balance() {
           // Without this, the if statement below (if it wasn't in the else/if part) would break
           // and throw an Unexpected End of Input exception. Weird. Oh well.
           if (bannedIDs.length == 0) {
+            console.log("first member", responseData.members[0]);
             memberID = (responseData.members[user].id);
             bannedName = ("" + responseData.members[user].name);
             bannedIDs.push(memberID);
