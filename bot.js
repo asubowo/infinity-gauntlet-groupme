@@ -81,10 +81,7 @@ function balance() {
     });
 
     responseBuffer.on('end', function(chunk) {
-      console.log("Contents of buffer: ", buffer);
-      console.log("type of buffer ", typeof(buffer));
       responseData = JSON.parse(buffer);
-      console.log("type of responseData after parse ", typeof(responseData));
       var user;
       var bannedIDs = [];
       var bannedNames = [];
@@ -108,9 +105,9 @@ function balance() {
         user = Math.floor(Math.random() * (groupTotal - 1));
         console.log("Selecting this position in member array: ",user);
           // Get a new user ID to ensure we don't snap ourselves like an idiot.
-    //      while (user == thanosID) {
-    //        user = Math.floor(Math.random() * (groupTotal - 1));
-    //      }
+          while (user == thanosID) {
+            user = Math.floor(Math.random() * (groupTotal - 1));
+          }
 
           // Initialize the array with the first banned user
           // I have no clue why this is required.
@@ -142,6 +139,7 @@ function balance() {
         console.log('Snapped IDs:');
         for (var i = 0; i < groupTotal; i++) {
           console.log(bannedIDs[i] + " " + bannedNames[i]);
+          console.log("Snapped " + bannIDs.length + " total people.");
         }
 
 
