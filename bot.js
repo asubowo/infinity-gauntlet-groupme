@@ -137,10 +137,11 @@ function balance() {
         } // end ban list generation loop
 
         console.log('Snapped IDs:');
+        console.log('test', typeof(bannedIDs[0]));
         for (var i = 0; i < groupTotal; i++) {
           console.log(bannedIDs[i] + " " + bannedNames[i]);
-          console.log("Snapped " + bannedIDs.length + " total people.");
         }
+        console.log("Snapped " + bannedIDs.length + " total people.");
 
 
 //        // promote shoddy coding to get this bot done fast
