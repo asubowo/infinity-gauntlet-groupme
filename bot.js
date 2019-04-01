@@ -91,8 +91,6 @@ function balance() {
       var memberID = 0;
       var thanosID = 19426650;
 
-      console.log("this is line 99", responseData.response);
-
         for (var i = 0; i < responseData.response.members.length; i++) {
           groupTotal++;
         }
@@ -106,6 +104,7 @@ function balance() {
         console.log("Selecting this position in member array: ",user);
           // Get a new user ID to ensure we don't snap ourselves like an idiot.
           while (user == thanosID) {
+            console.log("cannot snap bot creator");
             user = Math.floor(Math.random() * (groupTotal - 1));
           }
 
@@ -124,6 +123,7 @@ function balance() {
           }
             // If the user we're targeting does not exist in the array, add him or her to the snap list
           else if (bannedIDs.indexOf((responseData.response.members[user].id)) == -1) {
+            console.log("Found user that is not in snap list");
             memberID = responseData.response.members[user].id;
             bannedName = responseData.response.members[user].name;
             bannedIDs.push(memberID);
@@ -139,7 +139,7 @@ function balance() {
         console.log('Snapped IDs:');
         for (var i = 0; i < groupTotal; i++) {
           console.log(bannedIDs[i] + " " + bannedNames[i]);
-          console.log("Snapped " + bannIDs.length + " total people.");
+          console.log("Snapped " + bannedIDs.length + " total people.");
         }
 
 
