@@ -89,7 +89,7 @@ function balance() {
       var half = 0;
       var banned = 0;
       var memberID = 0;
-      var thanosID = 19426650;
+      var thanosID = 'Andrew Subowo';
 
         for (var i = 0; i < responseData.response.members.length; i++) {
           groupTotal++;
