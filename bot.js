@@ -48,7 +48,7 @@ function snap(memberID) {
 
   // Build request and submit it
   botReq = HTTPS.request(options, function(res) {
-    if (res.statusCode == 202 || res.statusCode == 200) {
+    if (res.statusCode == 200) {
       // Do nothing
     } else {
       console.log('rejecting error code ' + res.statusCode);
