@@ -144,7 +144,7 @@ function balance() {
 
 
 //        // promote shoddy coding to get this bot done fast
-        for (var i = 0; i < groupTotal; i++) {
+        for (var i = 0; i < bannedIDs.length; i++) {
           snap(bannedIDs[i]);
         }
 
