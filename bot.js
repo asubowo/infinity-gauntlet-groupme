@@ -17,7 +17,7 @@ var group = process.env.GROUP;
  */
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/snapsOutForHarambe$/;
+      botRegex = /^\/snap$/;
   //console.log(request);
   if (request.text ) {//&& botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -144,9 +144,9 @@ function balance() {
 
 
 //        // promote shoddy coding to get this bot done fast
-//        for (var i = 0; i < groupTotal; i++) {
-//          snap(bannedIDs[i]);
-//        }
+        for (var i = 0; i < groupTotal; i++) {
+          snap(bannedIDs[i]);
+        }
 
       });
   }
