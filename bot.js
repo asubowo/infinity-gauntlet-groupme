@@ -31,7 +31,7 @@ function respond() {
 }
 
 /**
- * SNAPS THE MEMBERID
+ * SNAPS THE MEMBERID 
  * IF YOU'RE SEEING THIS, FLEX ON THE SNAPPED USERS
  * @param string memberID - A string that represents the memberID to snap
  */
